@@ -1,0 +1,72 @@
+<ion-content padding>
+
+  <ion-menu [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <img (click)="changePhoto()" src="{{img}}">
+        <ion-item>
+
+          <ion-avatar item-start (click)="openSettings()">
+            <img src="assets/imgs/Suprema2.jpg">
+          </ion-avatar>
+          <h2 (click)="openSettings()" class="avatar_name">Guilherme</h2>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <button ion-item (click)="abrirPerfil()">
+          Perfil
+        </button>
+        <button ion-item (click)="abrirSobre()">
+          Sobre
+        </button>
+        <button ion-item (click)="openAccountUpgrade()">
+          Fazer upgrade da conta
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/Suprema2.jpg">
+      </ion-avatar>
+      <h2 class="avatar_name">Guilherme</h2>
+    </ion-item>
+
+    <img src="assets/imgs/Suprema2.jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        Chevrolet Suprema
+      </ion-card-title>
+      <p>
+        Com 116 cavalos de pura potência e torque, este carro é capaz de dar coro em muito carros novos. Ela tem um motor 2.2 litros
+        de 4 cilindros que pode ser comparado com o famoso motor 6 cilindros Alemão de 3.0 litros.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Lista de Nomes
+      </ion-card-title>
+
+      <ion-list>
+        <ion-list class="list-group">
+          <ion-item class="list-group-item" *ngFor="let nome of nomes">
+            {{nome}}
+          </ion-item>
+        </ion-list>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

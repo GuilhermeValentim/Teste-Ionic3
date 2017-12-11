@@ -1,0 +1,37 @@
+<ion-content padding>
+
+  <ion-item>
+    <ion-icon name="ios-list" item-start></ion-icon>
+    Quantidade de itens na lista
+    <ion-badge item-end>{{usuario.nomes.length}}</ion-badge>
+  </ion-item>
+
+  <ion-list class="list-group" *ngIf="usuario.ver">
+    <ion-item class="list-group-item" *ngFor="let nome of usuario.nomes">
+      {{nome}}
+    </ion-item>
+  </ion-list>
+
+  <hr>
+
+  <div>
+    <button ion-button class="btn btn-default" (click)="usuario.ver = !usuario.ver; changeTextButton();">
+      {{usuario.nome_botao}}
+    </button>
+    <button ion-button class="btn btn-default" (click)="deleteAllList()">Deletar Lista</button>
+  </div>
+
+  <button ion-button class="btn btn-default" (click)="deleteOneByOne()">Deletar 1 por 1</button>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-item>
+    <ion-input [(ngModel)]="this.usuario.texto_usuario" type="text" placeholder="Texto"></ion-input>
+    <button (click)="addNome(texto_usuario)" ion-button outline item-end icon-left>
+      <ion-icon name="cloud-upload"></ion-icon>
+      Upload!
+    </button>
+  </ion-item>
+</ion-footer>
