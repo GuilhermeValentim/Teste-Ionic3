@@ -1,48 +1,65 @@
-<ion-content padding>
 
-  <ion-menu [content]="content">
+  <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+      <ion-title>
+        Uploads
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+   
+
+  <ion-menu height="500" [content]="content">
 
     <ion-header>
       <ion-toolbar>
-        <img (click)="changePhoto()" src="{{img}}">
-        <ion-item>
+        <img (click)="changePhoto()" src="{{img}}" height="200" width="300">
 
-          <ion-avatar item-start (click)="openSettings()">
+        <ion-item>
+          <ion-avatar item-start (click)="openPerfil()">
             <img src="assets/imgs/Suprema2.jpg">
           </ion-avatar>
-          <h2 (click)="openSettings()" class="avatar_name">Guilherme</h2>
+          <h2 (click)="openPerfil()" class="avatar_name">{{this.usuario.usuario_nome}}</h2>
         </ion-item>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <ion-list>
-        <button ion-item (click)="abrirPerfil()">
+        <button ion-item (click)="openPerfil()">
           Perfil
         </button>
-        <button ion-item (click)="abrirSobre()">
-          Sobre
+        <button ion-item (click)="openSobre()">
+          Sobre*
         </button>
         <button ion-item (click)="openAccountUpgrade()">
-          Fazer upgrade da conta
+          Fazer upgrade da conta*
+        </button>
+        <button ion-item (click)="openSettings()">
+          Configurações*
+        </button>
+        <button ion-item (click)="openIntroPage()">
+          Sair*
         </button>
       </ion-list>
     </ion-content>
   </ion-menu>
 
-  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+  
 
   <ion-card>
-
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/Suprema2.jpg">
       </ion-avatar>
-      <h2 class="avatar_name">Guilherme</h2>
+      <h2 class="avatar_name">{{this.usuario.usuario_nome}}</h2>
     </ion-item>
 
-    <img src="assets/imgs/Suprema2.jpg" />
     <ion-card-content>
+      <img src="assets/imgs/Suprema2.jpg" />
       <ion-card-title>
         Chevrolet Suprema
       </ion-card-title>
@@ -53,20 +70,51 @@
     </ion-card-content>
   </ion-card>
 
+
+
+
   <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/Suprema2.jpg">
+      </ion-avatar>
+      <h2 class="avatar_name">{{this.usuario.usuario_nome}}</h2>
+    </ion-item>
+
+
     <ion-card-content>
+      <img src="assets/imgs/Suprema2.jpg" />
+      <ion-card-title>
+        Chevrolet Suprema
+      </ion-card-title>
+      <p>
+        Com 116 cavalos de pura potência e torque, este carro é capaz de dar coro em muito carros novos. Ela tem um motor 2.2 litros
+        de 4 cilindros que pode ser comparado com o famoso motor 6 cilindros Alemão de 3.0 litros.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+
+
+
+
+  <!-- <ion-card-content>
       <ion-card-title>
         Lista de Nomes
       </ion-card-title>
-
       <ion-list>
         <ion-list class="list-group">
-          <ion-item class="list-group-item" *ngFor="let nome of nomes">
+          <ion-item class="list-group-item" *ngFor="let nome of usuario.nomes">
             {{nome}}
           </ion-item>
         </ion-list>
       </ion-list>
 
-    </ion-card-content>
-  </ion-card>
+    </ion-card-content> -->
+    <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
 </ion-content>

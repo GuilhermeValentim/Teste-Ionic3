@@ -15,6 +15,8 @@ import { Usuario } from '../../model/usuario/usuario.model';
 })
 export class ChatPage {
   usuario: Usuario = {
+    usuario_nome: "",
+    usuario_senha: "",
     nomes: ["João", "Maria", "Ana"],
     ver: true,
     nome_botao: "Desaparecer Lista",
@@ -54,7 +56,10 @@ export class ChatPage {
     }
   }
   public deleteOneByOne() {
-    this.usuario.nomes.pop();
-    console.log(this.usuario.nomes);
+    if (this.usuario.nomes.length == 0 ){}
+    else{
+      this.usuario.nomes.pop();
+      console.log(this.usuario.nomes);
+    }
   }
 }
